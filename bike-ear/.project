@@ -3,8 +3,6 @@
 	<name>bike-ear</name>
 	<comment></comment>
 	<projects>
-		<project>bike-ejb</project>
-		<project>bike-web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
