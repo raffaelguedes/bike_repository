@@ -15,6 +15,9 @@ public class Bike {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@ManyToOne
+	private Perfil perfil;
+	
 	private Integer anoModelo;
 	
 	private String cor;
@@ -24,4 +27,54 @@ public class Bike {
 	
 	@ManyToOne
 	private Modelo modelo;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getAnoModelo() {
+		return anoModelo;
+	}
+
+	public void setAnoModelo(Integer anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public TipoBike getTipoBike() {
+		return tipoBike;
+	}
+
+	public void setTipoBike(TipoBike tipoBike) {
+		this.tipoBike = tipoBike;
+	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+	
+	
 }

@@ -18,6 +18,24 @@ public class ParticipanteId implements Serializable {
 	
 	@ManyToOne
 	private Roteiro roteiro;
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	public Roteiro getRoteiro() {
+		return roteiro;
+	}
+
+	public void setRoteiro(Roteiro roteiro) {
+		this.roteiro = roteiro;
+	}
+	
+	
 	
 	
 }

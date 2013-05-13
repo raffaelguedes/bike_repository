@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import br.com.bike.service.perfil.GerenciadorPerfilBean;
 
 /**
  * TODAS CLASSES DE IMPLEMENTAÇÃO REST. 
@@ -19,6 +18,7 @@ public class BikeRestApplication extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(GerenciadorPerfilBean.class);
+        classes.add(GerenciadorRoteiroBean.class);
         return classes;
     }
 }
