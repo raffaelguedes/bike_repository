@@ -14,17 +14,17 @@ public class Bike {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	private Perfil perfil;
-	
+
 	private Integer anoModelo;
-	
+
 	private String cor;
-	
+
 	@Enumerated(EnumType.STRING)
 	private TipoBike tipoBike;
-	
+
 	@ManyToOne
 	private Modelo modelo;
 
@@ -75,6 +75,6 @@ public class Bike {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-	
-	
+
+
 }

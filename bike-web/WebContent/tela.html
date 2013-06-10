@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bike</title>
+</head>
+<body>
+	<div id="loginDiv">
+		<form id="loginForm">
+			<input type="button" value="Criar Perfil" id="btnCriarPerfil">
+			<label>Email:</label> <input id="email" name="email" type="text" /> 
+			<label>Senha:</label> <input type="password" id="senha" name="senha" />
+			<input type="button" value="Logar" id="btnLogar">
+		</form>
+	</div>
+	<div id="perfilDiv" style="display: none">
+		<form id="perfilForm">
+			<input type="text" id="apelido" name="apelido"  />
+			<input type="button" value="Novo Roteiro" id="btnNovoRoteiro">
+			<input type="button" value="Meus Roteiros" id="btnMeusRoteiros">
+		</form>
+	</div>
+	<div id="novoRoteiroDiv" style="display: none">
+		<form id="novoRoteiroForm">
+			<div id="directionsPanel" style="display: none"></div>
+			<div id="map_canvas" style="float: rigth; width: 70%; height: 50%"></div>
+			&nbsp;
+			<div id="warnings_panel" style="width: 100%; height: 10%; text-align: center"></div>
+			<label>Origem</label> <input type="text" id="origem" name="origem"/>
+			<label>Destino</label> <input type="text" id="destino" name="destino"/>
+			<input type="button" value="Calcular Rota" id="btnCalcularRota">
+			<input type="button" value="Desfazer" id="btnDesfazer">
+			<input type="button" value="Salvar" id="btnSalvarRoteiro">
+			<div id="addressOptions" style="width: 30%; height: 100%" title="Opções de Endereços">
+				
+			</div>
+		</form>
+	</div>
+	<div id="meusRoteirosDiv" style="display: none">
+		<form id="meusRoteirosForm">
+		
+		</form>
+	</div>
+</body>
+<script src="js/jquery-2.0.0.js"></script>
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAKHMMCfwEATnMj7FFTK9JVcgKap02d3uM&sensor=false"></script>
+<script src="js/main.js"></script>
+</html>

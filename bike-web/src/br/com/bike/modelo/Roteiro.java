@@ -1,11 +1,13 @@
 package br.com.bike.modelo;
 
 import java.util.Calendar;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Classe que representa os trajetos e participantes.
+ * Classe que representa o Roteiro contendo os trajetos, participantes....
  * @author Raffa
  *
  */
@@ -27,11 +29,11 @@ public class Roteiro {
 	
 	private String descricao;
 	
-	@OneToMany(mappedBy="participanteId.roteiro")
-	private List<Participante> participantes;
+	@OneToMany(mappedBy="participanteId.roteiro", fetch=FetchType.EAGER)
+	private Set<Participante> participantes = new HashSet<Participante>();
 	
-	@OneToMany(mappedBy="roteiro")
-	private List<Trajeto> trajetos;
+	@OneToMany(mappedBy="roteiro", fetch=FetchType.EAGER)
+	private Set<Trajeto> trajetos = new HashSet<Trajeto>();
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -55,19 +57,19 @@ public class Roteiro {
 		this.descricao = descricao;
 	}
 
-	public List<Participante> getParticipantes() {
+	public Set<Participante> getParticipantes() {
 		return participantes;
 	}
 
-	public void setParticipantes(List<Participante> participantes) {
+	public void setParticipantes(Set<Participante> participantes) {
 		this.participantes = participantes;
 	}
 
-	public List<Trajeto> getTrajetos() {
+	public Set<Trajeto> getTrajetos() {
 		return trajetos;
 	}
-
-	public void setTrajetos(List<Trajeto> trajetos) {
+	
+	public void setTrajetos(Set<Trajeto> trajetos) {
 		this.trajetos = trajetos;
 	}
 

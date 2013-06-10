@@ -1,11 +1,13 @@
 package br.com.bike.modelo;
 
 import java.util.Calendar;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,18 +33,14 @@ public class Perfil {
 	@Enumerated(EnumType.STRING)
 	private TipoPerfil tipoPerfil;
 	
-	@OneToMany(mappedBy="perfil")
-	private List<Endereco> enderecos;
+	@OneToMany(mappedBy="perfil", fetch=FetchType.EAGER)
+	private Set<Endereco> enderecos = new HashSet<Endereco>();
 	
-	@OneToMany(mappedBy="perfil")
-	private List<Telefone> telefones;
+	@OneToMany(mappedBy="perfil", fetch=FetchType.EAGER)
+	private Set<Telefone> telefones = new HashSet<Telefone>();
 	
-	@OneToMany(mappedBy="perfil")
-	private List<Bike> bikes;
-	
-	//TODO COMO REPRESENTAR COM O HIBERNATE
-	//LISTA COM TODOS OS ROTEIROS ASSINADOS PELO PERFIL
-	//private List<Roteiro> roteiros;
+	@OneToMany(mappedBy="perfil", fetch=FetchType.EAGER)
+	private Set<Bike> bikes = new HashSet<Bike>();
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -93,27 +91,27 @@ public class Perfil {
 		this.tipoPerfil = tipoPerfil;
 	}
 
-	public List<Endereco> getEnderecos() {
+	public Set<Endereco> getEnderecos() {
 		return enderecos;
 	}
 
-	public void setEnderecos(List<Endereco> enderecos) {
+	public void setEnderecos(Set<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
 
-	public List<Telefone> getTelefones() {
+	public Set<Telefone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(List<Telefone> telefones) {
+	public void setTelefones(Set<Telefone> telefones) {
 		this.telefones = telefones;
 	}
 
-	public List<Bike> getBikes() {
+	public Set<Bike> getBikes() {
 		return bikes;
 	}
 
-	public void setBikes(List<Bike> bikes) {
+	public void setBikes(Set<Bike> bikes) {
 		this.bikes = bikes;
 	}
 

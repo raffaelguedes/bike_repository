@@ -1,11 +1,18 @@
 package br.com.bike.service;
 
+import java.util.List;
+
 import javax.ejb.Local;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import br.com.bike.modelo.GoogleMap;
+import br.com.bike.response.RoteiroResponse;
 
 /**
  * INTERFACE DE SERVIÇOS REST PARA A SESSÃO (PEDALADA)
@@ -18,11 +25,11 @@ import javax.ws.rs.core.MediaType;
 @Local
 public interface GerenciadorRoteiro {
 	
-	@GET
+	@POST
 	@Path("/criarRoteiro")
-	void criar();
+	void criar(GoogleMap googleMap);
 	
 	@GET
-	@Path("/pesquisar")
-	void pesquisar();
+	@Path("/carregarRoteiros/{perfilId}")
+	List<RoteiroResponse> carregarRoteiros(@PathParam("perfilId") Long perfilId);
 }

@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Endereco {
 
@@ -29,6 +32,7 @@ public class Endereco {
 	private Integer cep;
 	
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	private Cidade cidade;
 	
 	/**
@@ -36,6 +40,8 @@ public class Endereco {
 	 */
 	@ManyToOne
 	private TipoEndereco tipoEndereco;
+	
+	//TODO INFORMAÇÕES GEOLOCALIZACIONAIS LATITUDE LONGITUDE
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;

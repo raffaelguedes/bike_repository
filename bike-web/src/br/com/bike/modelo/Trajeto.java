@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -42,13 +43,14 @@ public class Trajeto {
 	@ManyToOne
 	private Roteiro roteiro;
 	
+	@OneToOne
+	private GoogleMap googleMap;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataInicioTrajeto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataFimTrajeto;
-	
-	//TODO Atributos ou Objetos que representam o dado do gps.
 
 	public Long getId() {
 		return id;
@@ -82,6 +84,22 @@ public class Trajeto {
 		this.perfil = perfil;
 	}
 
+	public Roteiro getRoteiro() {
+		return roteiro;
+	}
+
+	public void setRoteiro(Roteiro roteiro) {
+		this.roteiro = roteiro;
+	}
+
+	public GoogleMap getGoogleMap() {
+		return googleMap;
+	}
+
+	public void setGoogleMap(GoogleMap googleMap) {
+		this.googleMap = googleMap;
+	}
+
 	public Calendar getDataInicioTrajeto() {
 		return dataInicioTrajeto;
 	}
@@ -98,11 +116,5 @@ public class Trajeto {
 		this.dataFimTrajeto = dataFimTrajeto;
 	}
 
-	public Roteiro getRoteiro() {
-		return roteiro;
-	}
-
-	public void setRoteiro(Roteiro roteiro) {
-		this.roteiro = roteiro;
-	}
+	
 }
